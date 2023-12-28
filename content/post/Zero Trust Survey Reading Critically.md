@@ -3,7 +3,6 @@ title = 'Zero Trust Survey Reading Critically'
 date = 2023-12-29T01:11:48+08:00
 draft = false
 +++
-# Zero Trust Survey Reading Critically
 
 ## 1. Abstract
 

@@ -1,43 +1,43 @@
 baseURL = 'http://guangliang.li/'
 languageCode = 'en-us'
-theme = "JuiceBar"
-title = "Blog of Robin"
+theme = "Hugo-JuiceBar"
+title = "Robin Blog"
 
 [params]
-author = "李广良"
+author = "Robin"
 description = "My site description"
 authorImage = "https://raw.githubusercontent.com/lglgl/images/main/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_105_c.jpeg"
-paginate = 5
+paginate = 10
 Title = "Robin"
 content = "You can be the one you want to be!"
 imageUrl = "https://raw.githubusercontent.com/lglgl/images/main/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_105_c.jpeg"
 
 # 添加新的社交图标
 # 更多社交图标可以在JuiceBar\layouts\partials\svg.html中找到
-[[params.social]]
-name = "Github"
-url = "https://github.com/hotjuicew"
-[[params.social]]
-name = "telegram"
-url = "https://t.me/Hotjuice"
-[[params.social]]
-name = "twitter"
-url = "https://twitter.com/hotjuicee"
+#[[params.social]]
+#name = "Github"
+#url = "https://github.com/null"
+#[[params.social]]
+#name = "telegram"
+#url = "https://t.me/null"
+#[[params.social]]
+#name = "twitter"
+#url = "https://twitter.com/null"
 [[params.social]]
 name = "email"
-url = "mailto:hotjuicew@outlook.com"
-[[params.social]]
-name = "instagram"
-url = "your_url"
-[[params.social]]
-name = "mastodon"
-url = "your_url"
-[[params.social]]
-name = "reddit"
-url = "your_url"
-[[params.social]]
-name = "stackoverflow"
-url = "your_url"
+url = "mailto:liguangliang@studeng.usm.my"
+#[[params.social]]
+#name = "instagram"
+#url = "your_url"
+#[[params.social]]
+#name = "mastodon"
+#url = "your_url"
+#[[params.social]]
+#name = "reddit"
+#url = "your_url"
+#[[params.social]]
+#name = "stackoverflow"
+#url = "your_url"
 
 [taxonomies]
 category = "categories"
