@@ -1,8 +1,11 @@
-+++
-title = 'Zero Trust Survey Reading Critically'
-date = 2023-12-29T01:11:48+08:00
-draft = false
-+++
+---
+title: Zero Trust Survey Reading Critically
+tags: [零信任]
+id: '710'
+categories: ["信息安全"]
+date: 2023-12-29T01:11:48+08:00
+url: "Zero-Trust-Survey-Reading-Critically.html"
+---
 
 ## 1. Abstract
 

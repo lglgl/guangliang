@@ -6,11 +6,11 @@ title = "Robin Blog"
 [params]
 author = "Robin"
 description = "My site description"
-authorImage = "https://raw.githubusercontent.com/lglgl/images/main/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_105_c.jpeg"
+authorImage = "https://images.guangliang.li/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_105_c.jpeg"
 paginate = 10
 Title = "Robin"
 content = "You can be the one you want to be!"
-imageUrl = "https://raw.githubusercontent.com/lglgl/images/main/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_105_c.jpeg"
+imageUrl = "https://images.guangliang.li/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_105_c.jpeg"
 
 # 添加新的社交图标
 # 更多社交图标可以在JuiceBar\layouts\partials\svg.html中找到
@@ -70,3 +70,6 @@ url = "/categories"
 #用于输出文档的设置（必须的）
 [outputs]
 home = ["HTML", "RSS", "JSON"]
+
+[permalinks]
+post = "/:filename"
