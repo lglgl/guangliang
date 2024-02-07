@@ -2,14 +2,14 @@ baseURL = 'http://guangliang.li/'
 languageCode = 'en-us'
 theme = "Hugo-JuiceBar"
 title = "Robin Blog"
-
+# 有效
 [params]
 author = "Robin"
-description = "My site description"
+description = "echnology, information security, daily life, system administration, system operations"
 authorImage = "https://images.guangliang.li/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_105_c.jpeg"
 paginate = 10
 Title = "Robin"
-content = "You can be the one you want to be!"
+content = "Recording my postgraduate life in Malaysia"
 imageUrl = "https://images.guangliang.li/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_105_c.jpeg"
 
 # 添加新的社交图标
@@ -25,7 +25,7 @@ imageUrl = "https://images.guangliang.li/45F8CC1E-6BB0-4FEF-8E37-49C116657149_1_
 #url = "https://twitter.com/null"
 [[params.social]]
 name = "email"
-url = "mailto:liguangliang@studeng.usm.my"
+url = "mailto:im@guangliang.li"
 #[[params.social]]
 #name = "instagram"
 #url = "your_url"
