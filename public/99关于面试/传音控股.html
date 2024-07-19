@@ -11,7 +11,7 @@
 
     <title>
         
-          Hello World - 李广良
+          李广良
         
     </title>
 
@@ -154,87 +154,22 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h2 id="高级算法目录">高级算法目录</h2>
-<h3 id="1-1-BFS-Breadth-First-Search">1.1. BFS (Breadth-First Search)</h3>
-<p>广度优先搜索（BFS）是一种图搜索算法，从起始节点开始，逐层向外扩展，访问所有相邻节点。BFS 使用队列来跟踪要访问的节点顺序，适用于寻找最短路径（在无权图中）和检测图的连通性。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空队列 <code>queue</code> 和一个空集合 <code>visited</code>。</li>
-<li>将起始节点放入队列和访问集合中。</li>
-<li>当队列不为空时，重复以下步骤：
-<ul>
-<li>弹出队列中的节点，将其标记为已访问。</li>
-<li>将所有未访问过的邻居节点加入队列和访问集合。</li>
-</ul>
-</li>
-</ol>
-<h3 id="1-2-DFS-Depth-First-Search">1.2. DFS (Depth-First Search)</h3>
-<p>深度优先搜索（DFS）是一种图搜索算法，从起始节点开始，沿着一个分支深入，直到不能继续为止，然后回溯并继续搜索未访问的节点。DFS 使用栈来实现递归，适用于检测环、拓扑排序等。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空集合 <code>visited</code> 来记录访问过的节点。</li>
-<li>从起始节点开始调用递归函数 <code>dfs</code>：
-<ul>
-<li>将当前节点标记为已访问。</li>
-<li>对于当前节点的每个未访问的邻居节点，递归调用 <code>dfs</code> 函数。</li>
-</ul>
-</li>
-</ol>
-<h2 id="2-Shortest-Path-Algorithms">2. Shortest Path Algorithms</h2>
-<h3 id="2-1-Dijkstra">2.1. Dijkstra</h3>
-<p>Dijkstra 算法用于计算单源最短路径，适用于边权重非负的图。它使用优先队列来选择当前最短路径的节点，逐步更新其邻居的最短路径。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个优先队列 <code>pq</code> 和距离字典 <code>distances</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>将起始节点和距离 0 放入队列。</li>
-<li>当队列不为空时，重复以下步骤：
-<ul>
-<li>弹出队列中距离最小的节点。</li>
-<li>对于该节点的每个邻居节点，如果通过当前节点到达该邻居节点的路径距离更短，则更新距离并将其加入队列。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="2-2-Bellman-Ford">2.2. Bellman-Ford</h3>
-<p>Bellman-Ford 算法用于计算单源最短路径，适用于包含负权边的图。它通过反复松弛所有边，更新最短路径，最多进行 |V|-1 次迭代。它还能检测负权环。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建距离字典 <code>distance</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>进行 |V|-1 次迭代，每次迭代遍历所有边：
-<ul>
-<li>对于每条边 (u, v) 权重为 w，如果通过节点 u 到节点 v 的路径距离更短，则更新距离。</li>
-</ul>
-</li>
-<li>再次遍历所有边，检查是否存在负权环。</li>
-</ol>
-<h2 id="3-Pattern-Matching-Algorithms">3. Pattern Matching Algorithms</h2>
-<h3 id="3-1-KMP-Knuth-Morris-Pratt">3.1. KMP (Knuth-Morris-Pratt)</h3>
-<p>KMP 算法用于字符串模式匹配，通过预处理模式串构建部分匹配表，从而在匹配过程中避免重复扫描文本。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建部分匹配表 <code>lps</code>，用于指示在匹配失败时模式串应移动的位置。</li>
-<li>使用两个指针 i 和 j 分别遍历文本和模式串：
-<ul>
-<li>如果匹配成功（text[i] == pattern[j]），则同时向前移动 i 和 j。</li>
-<li>如果 j 达到模式串末尾，说明找到了匹配，记录匹配的起始位置。</li>
-<li>如果匹配失败（text[i] != pattern[j]），根据部分匹配表移动模式串的位置 j。</li>
-</ul>
-</li>
-</ol>
-<h3 id="3-2-Boyer-Moore">3.2. Boyer-Moore</h3>
-<p>Boyer-Moore 算法是另一种字符串模式匹配算法，通过从右向左匹配和使用跳跃表显著减少比较次数，提高匹配效率。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建字符到最后出现位置的映射表 <code>last</code>。</li>
-<li>使用两个指针 s 和 j 分别遍历文本和模式串：
-<ul>
-<li>从右向左比较模式串和文本，当匹配失败时根据 <code>last</code> 表跳过一定的字符。</li>
-<li>如果完全匹配，记录匹配的起始位置并移动 s。</li>
-<li>如果部分匹配但未完全匹配，根据 <code>last</code> 表调整 j 的位置。</li>
-</ul>
-</li>
-</ol>
-<p>这些算法在图论、路径查找和字符串模式匹配领域中具有重要应用，能够有效解决各种复杂问题。</p>
+  <h2 id="面试准备">面试准备</h2>
+<p>职责描述：<br>
+1、负责vmware虚拟化、阿里云及其他公有云系统的日常管理及运维<br>
+2、负责服务器、存储等系统服务类设备的日常管理和运维<br>
+3、了解docker容器及k8s架构，负责容器系统管理和运维<br>
+4、负责搭建并维护混合云自动化管理平台<br>
+任职要求：<br>
+1、统招本科及以上学历，计算机相关专业，5年以上计算机相关工作经验<br>
+2、具备维护和管理vmware集群架构的实战经验和能力<br>
+3、具备容器系统及容器管理架构的维护能力<br>
+4、具备5年以上linux系统管理经验<br>
+5、具备系统服务类设备维护及维保的经验能力<br>
+6、了解TCP/IP、网络架构及原理、MySQL数据库、中间件等<br>
+7、有计划性，执行力强，对技术有热情，具备较强的工作责任感和团队意识</p>
+<h2 id="网络七层模型">网络七层模型</h2>
+<h2 id="三剑客">三剑客</h2>
 
 </div>
 
@@ -274,7 +209,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>空空</div>
-      <div>2024-07-10</div>
+      <div>2024-07-15</div>
     </div>
   </div>
 

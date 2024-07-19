@@ -11,7 +11,7 @@
 
     <title>
         
-          Hello World - 李广良
+          2019年题目 - 李广良
         
     </title>
 
@@ -154,87 +154,25 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h2 id="高级算法目录">高级算法目录</h2>
-<h3 id="1-1-BFS-Breadth-First-Search">1.1. BFS (Breadth-First Search)</h3>
-<p>广度优先搜索（BFS）是一种图搜索算法，从起始节点开始，逐层向外扩展，访问所有相邻节点。BFS 使用队列来跟踪要访问的节点顺序，适用于寻找最短路径（在无权图中）和检测图的连通性。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空队列 <code>queue</code> 和一个空集合 <code>visited</code>。</li>
-<li>将起始节点放入队列和访问集合中。</li>
-<li>当队列不为空时，重复以下步骤：
-<ul>
-<li>弹出队列中的节点，将其标记为已访问。</li>
-<li>将所有未访问过的邻居节点加入队列和访问集合。</li>
-</ul>
-</li>
-</ol>
-<h3 id="1-2-DFS-Depth-First-Search">1.2. DFS (Depth-First Search)</h3>
-<p>深度优先搜索（DFS）是一种图搜索算法，从起始节点开始，沿着一个分支深入，直到不能继续为止，然后回溯并继续搜索未访问的节点。DFS 使用栈来实现递归，适用于检测环、拓扑排序等。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空集合 <code>visited</code> 来记录访问过的节点。</li>
-<li>从起始节点开始调用递归函数 <code>dfs</code>：
-<ul>
-<li>将当前节点标记为已访问。</li>
-<li>对于当前节点的每个未访问的邻居节点，递归调用 <code>dfs</code> 函数。</li>
-</ul>
-</li>
-</ol>
-<h2 id="2-Shortest-Path-Algorithms">2. Shortest Path Algorithms</h2>
-<h3 id="2-1-Dijkstra">2.1. Dijkstra</h3>
-<p>Dijkstra 算法用于计算单源最短路径，适用于边权重非负的图。它使用优先队列来选择当前最短路径的节点，逐步更新其邻居的最短路径。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个优先队列 <code>pq</code> 和距离字典 <code>distances</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>将起始节点和距离 0 放入队列。</li>
-<li>当队列不为空时，重复以下步骤：
-<ul>
-<li>弹出队列中距离最小的节点。</li>
-<li>对于该节点的每个邻居节点，如果通过当前节点到达该邻居节点的路径距离更短，则更新距离并将其加入队列。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="2-2-Bellman-Ford">2.2. Bellman-Ford</h3>
-<p>Bellman-Ford 算法用于计算单源最短路径，适用于包含负权边的图。它通过反复松弛所有边，更新最短路径，最多进行 |V|-1 次迭代。它还能检测负权环。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建距离字典 <code>distance</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>进行 |V|-1 次迭代，每次迭代遍历所有边：
-<ul>
-<li>对于每条边 (u, v) 权重为 w，如果通过节点 u 到节点 v 的路径距离更短，则更新距离。</li>
-</ul>
-</li>
-<li>再次遍历所有边，检查是否存在负权环。</li>
-</ol>
-<h2 id="3-Pattern-Matching-Algorithms">3. Pattern Matching Algorithms</h2>
-<h3 id="3-1-KMP-Knuth-Morris-Pratt">3.1. KMP (Knuth-Morris-Pratt)</h3>
-<p>KMP 算法用于字符串模式匹配，通过预处理模式串构建部分匹配表，从而在匹配过程中避免重复扫描文本。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建部分匹配表 <code>lps</code>，用于指示在匹配失败时模式串应移动的位置。</li>
-<li>使用两个指针 i 和 j 分别遍历文本和模式串：
-<ul>
-<li>如果匹配成功（text[i] == pattern[j]），则同时向前移动 i 和 j。</li>
-<li>如果 j 达到模式串末尾，说明找到了匹配，记录匹配的起始位置。</li>
-<li>如果匹配失败（text[i] != pattern[j]），根据部分匹配表移动模式串的位置 j。</li>
-</ul>
-</li>
-</ol>
-<h3 id="3-2-Boyer-Moore">3.2. Boyer-Moore</h3>
-<p>Boyer-Moore 算法是另一种字符串模式匹配算法，通过从右向左匹配和使用跳跃表显著减少比较次数，提高匹配效率。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建字符到最后出现位置的映射表 <code>last</code>。</li>
-<li>使用两个指针 s 和 j 分别遍历文本和模式串：
-<ul>
-<li>从右向左比较模式串和文本，当匹配失败时根据 <code>last</code> 表跳过一定的字符。</li>
-<li>如果完全匹配，记录匹配的起始位置并移动 s。</li>
-<li>如果部分匹配但未完全匹配，根据 <code>last</code> 表调整 j 的位置。</li>
-</ul>
-</li>
-</ol>
-<p>这些算法在图论、路径查找和字符串模式匹配领域中具有重要应用，能够有效解决各种复杂问题。</p>
+  <p><strong>EN:</strong></p>
+<p>(a) Write a straightforward recursive function to calculate Fibonacci number.</p>
+<p>(b) What is the time complexity of the function in (1)(a) above, in big O? Explain your answer.</p>
+<p>© What is dynamic programming? Apply dynamic programming approach to calculate a Fibonacci number, and describe the way dynamic programming calculates the Fibonacci number using an appropriate example.</p>
+<p><strong>ZH:</strong></p>
+<p>（a）写一个直接的递归函数来计算斐波那契数。</p>
+<p>（b）上面（1）（a）中的函数的时间复杂度是什么，大 O 是多少？解释你的答案。</p>
+<p>（c）什么是动态规划？应用动态规划方法来计算斐波那契数，并描述动态规划使用适当的示例计算斐波那契数的方法。</p>
+<p><strong>中文解释：</strong></p>
+<p><strong>（a）斐波那契数的递归函数</strong></p>
+<p>斐波那契数列是一个数列，其中前两个数为 0 和 1，而从第三个数开始，每个数都是前两个数的和。一个简单的递归函数可以用于计算斐波那契数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fibonacci</span>(<span class="params">n</span>):</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> n &lt; <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> fibonacci(n-<span class="number">1</span>) + fibonacci(n-<span class="number">2</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>（b）时间复杂度</strong></p>
+<p>给定自然数 n，递归函数 fibonacci(n) 的时间复杂度为 O(2^n)。这是因为对于每个输入 n，该函数都会递归地调用自身两次，并且这种模式会一直重复到 n 达到 0 或 1。</p>
+<p><strong>（c）动态规划</strong></p>
+<p>动态规划是一种解决优化问题的技术，它将问题分解成子问题，然后通过存储子问题的解决方案来避免重复计算。对于斐波那契数，我们可以使用动态规划来计算斐波那契数，方法是存储已计算出的斐波那契数。</p>
+<p>以下是动态规划方法计算斐波那契数的一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fibonacci_dp</span>(<span class="params">n</span>):</span><br><span class="line"></span><br><span class="line">fib_cache = [<span class="number">0</span>, <span class="number">1</span>]  <span class="comment"># 存储已计算出的斐波那契数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> n &gt;= <span class="built_in">len</span>(fib_cache):</span><br><span class="line"></span><br><span class="line">next_fib = fib_cache[-<span class="number">1</span>] + fib_cache[-<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">fib_cache.append(next_fib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> fib_cache[n]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在该实现中，fib_cache 列表存储已计算出的斐波那契数。当 n 大于 fib_cache 的长度时，它将计算并存储下一个斐波那契数。通过使用 fib_cache，动态规划方法避免了重复计算，从而将时间复杂度从 O(2^n) 降低到 O(n)。</p>
 
 </div>
 

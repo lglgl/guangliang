@@ -11,7 +11,7 @@
 
     <title>
         
-          Hello World - 李广良
+          0401系统加固 - 李广良
         
     </title>
 
@@ -154,87 +154,22 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h2 id="高级算法目录">高级算法目录</h2>
-<h3 id="1-1-BFS-Breadth-First-Search">1.1. BFS (Breadth-First Search)</h3>
-<p>广度优先搜索（BFS）是一种图搜索算法，从起始节点开始，逐层向外扩展，访问所有相邻节点。BFS 使用队列来跟踪要访问的节点顺序，适用于寻找最短路径（在无权图中）和检测图的连通性。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空队列 <code>queue</code> 和一个空集合 <code>visited</code>。</li>
-<li>将起始节点放入队列和访问集合中。</li>
-<li>当队列不为空时，重复以下步骤：
+  <h3 id="1-设置密码复杂度">1. 设置密码复杂度</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/pam.d/system-auth</span><br><span class="line"></span><br><span class="line">password    requisite     pam_pwquality.so dcredit=-1 lcredit=-1 ucredit=-1 ocredit=-1 minlen=8 try_first_pass local_users_only retry=10 authtok_type=<span class="string">&#x27;设置账号（要求：大小写+特殊字符+数字&gt;8位）&#x27;</span></span><br><span class="line"></span><br><span class="line">dcredit=-1 lcredit=-1 ucredit=-1 ocredit=-1 minlen=8</span><br><span class="line"></span><br><span class="line">retry=5      定义登录、或修改密码失败后，可以重复的次数</span><br><span class="line"><span class="built_in">type</span>=        选项，定义用户修改密码时的提示内容，一般不管</span><br><span class="line">dcredit=-1   至少一个数字</span><br><span class="line">lcredit=-1   至少一个小写</span><br><span class="line">ucredit=-1   至少一个大写</span><br><span class="line">ocredit=-1   至少一个特殊字符</span><br><span class="line">minlen=8     密码最短长度为5位</span><br><span class="line">remember=5   不能重复使用前5次使用过的密码</span><br></pre></td></tr></table></figure>
 <ul>
-<li>弹出队列中的节点，将其标记为已访问。</li>
-<li>将所有未访问过的邻居节点加入队列和访问集合。</li>
+<li>验证</li>
 </ul>
-</li>
-</ol>
-<h3 id="1-2-DFS-Depth-First-Search">1.2. DFS (Depth-First Search)</h3>
-<p>深度优先搜索（DFS）是一种图搜索算法，从起始节点开始，沿着一个分支深入，直到不能继续为止，然后回溯并继续搜索未访问的节点。DFS 使用栈来实现递归，适用于检测环、拓扑排序等。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空集合 <code>visited</code> 来记录访问过的节点。</li>
-<li>从起始节点开始调用递归函数 <code>dfs</code>：
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@dahouzi-node005 ~]# vi /etc/pam.d/system-auth</span><br><span class="line">[root@dahouzi-node005 ~]# passwd dahouzi</span><br><span class="line">更改用户 dahouzi 的密码 。</span><br><span class="line">新的 <span class="string">&#x27;设置密码要求：大小写+特殊字符+数字&#x27;</span> 密码：</span><br></pre></td></tr></table></figure>
+<h3 id="2-设置系统日志保存时间">2. 设置系统日志保存时间</h3>
+<p>vi /etc/logrotate.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># see &quot;man logrotate&quot; for details</span></span><br><span class="line"><span class="comment"># rotate log files weekly</span></span><br><span class="line">weekly</span><br><span class="line"></span><br><span class="line"><span class="comment"># keep 4 weeks worth of backlogs</span></span><br><span class="line"><span class="comment"># 保存6个月</span></span><br><span class="line">rotate 24</span><br><span class="line"></span><br><span class="line"><span class="comment"># create new (empty) log files after rotating old ones</span></span><br><span class="line">create</span><br><span class="line"></span><br><span class="line"><span class="comment"># use date as a suffix of the rotated file</span></span><br><span class="line">dateext</span><br><span class="line"></span><br><span class="line"><span class="comment"># uncomment this if you want your log files compressed</span></span><br><span class="line"><span class="comment">#compress</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># RPM packages drop log rotation information into this directory</span></span><br><span class="line">include /etc/logrotate.d</span><br><span class="line"></span><br><span class="line"><span class="comment"># no packages own wtmp and btmp -- we&#x27;ll rotate them here</span></span><br><span class="line"><span class="comment"># 保存6个月</span></span><br><span class="line">/var/log/wtmp &#123;</span><br><span class="line">    monthly</span><br><span class="line">    create 0664 root utmp</span><br><span class="line">        minsize 1M</span><br><span class="line">    rotate 6</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 保存6个月</span></span><br><span class="line">/var/log/btmp &#123;</span><br><span class="line">    missingok</span><br><span class="line">    monthly</span><br><span class="line">    create 0600 root utmp</span><br><span class="line">    rotate 6</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># system-specific logs may be also be configured here.</span></span><br><span class="line">service rsyslog restart</span><br></pre></td></tr></table></figure>
+<h3 id="3-MySQL审计">3. MySQL审计</h3>
 <ul>
-<li>将当前节点标记为已访问。</li>
-<li>对于当前节点的每个未访问的邻居节点，递归调用 <code>dfs</code> 函数。</li>
+<li>开启<br>
+set global general_log=on</li>
+<li>检查<br>
+show variables like ‘%general_log%’</li>
 </ul>
-</li>
-</ol>
-<h2 id="2-Shortest-Path-Algorithms">2. Shortest Path Algorithms</h2>
-<h3 id="2-1-Dijkstra">2.1. Dijkstra</h3>
-<p>Dijkstra 算法用于计算单源最短路径，适用于边权重非负的图。它使用优先队列来选择当前最短路径的节点，逐步更新其邻居的最短路径。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个优先队列 <code>pq</code> 和距离字典 <code>distances</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>将起始节点和距离 0 放入队列。</li>
-<li>当队列不为空时，重复以下步骤：
-<ul>
-<li>弹出队列中距离最小的节点。</li>
-<li>对于该节点的每个邻居节点，如果通过当前节点到达该邻居节点的路径距离更短，则更新距离并将其加入队列。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="2-2-Bellman-Ford">2.2. Bellman-Ford</h3>
-<p>Bellman-Ford 算法用于计算单源最短路径，适用于包含负权边的图。它通过反复松弛所有边，更新最短路径，最多进行 |V|-1 次迭代。它还能检测负权环。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建距离字典 <code>distance</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>进行 |V|-1 次迭代，每次迭代遍历所有边：
-<ul>
-<li>对于每条边 (u, v) 权重为 w，如果通过节点 u 到节点 v 的路径距离更短，则更新距离。</li>
-</ul>
-</li>
-<li>再次遍历所有边，检查是否存在负权环。</li>
-</ol>
-<h2 id="3-Pattern-Matching-Algorithms">3. Pattern Matching Algorithms</h2>
-<h3 id="3-1-KMP-Knuth-Morris-Pratt">3.1. KMP (Knuth-Morris-Pratt)</h3>
-<p>KMP 算法用于字符串模式匹配，通过预处理模式串构建部分匹配表，从而在匹配过程中避免重复扫描文本。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建部分匹配表 <code>lps</code>，用于指示在匹配失败时模式串应移动的位置。</li>
-<li>使用两个指针 i 和 j 分别遍历文本和模式串：
-<ul>
-<li>如果匹配成功（text[i] == pattern[j]），则同时向前移动 i 和 j。</li>
-<li>如果 j 达到模式串末尾，说明找到了匹配，记录匹配的起始位置。</li>
-<li>如果匹配失败（text[i] != pattern[j]），根据部分匹配表移动模式串的位置 j。</li>
-</ul>
-</li>
-</ol>
-<h3 id="3-2-Boyer-Moore">3.2. Boyer-Moore</h3>
-<p>Boyer-Moore 算法是另一种字符串模式匹配算法，通过从右向左匹配和使用跳跃表显著减少比较次数，提高匹配效率。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建字符到最后出现位置的映射表 <code>last</code>。</li>
-<li>使用两个指针 s 和 j 分别遍历文本和模式串：
-<ul>
-<li>从右向左比较模式串和文本，当匹配失败时根据 <code>last</code> 表跳过一定的字符。</li>
-<li>如果完全匹配，记录匹配的起始位置并移动 s。</li>
-<li>如果部分匹配但未完全匹配，根据 <code>last</code> 表调整 j 的位置。</li>
-</ul>
-</li>
-</ol>
-<p>这些算法在图论、路径查找和字符串模式匹配领域中具有重要应用，能够有效解决各种复杂问题。</p>
 
 </div>
 
@@ -274,7 +209,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>空空</div>
-      <div>2024-07-10</div>
+      <div>2023-09-01</div>
     </div>
   </div>
 
