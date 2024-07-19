@@ -154,12 +154,74 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <p>1、主机的位置信息确认（机房位置、机柜、机架），主机的机器信息（磁盘RAID模式，网卡型号和冗余带宽）。</p>
-<p>2、是否有堡垒机做集中接入？还是固定外部可访问IP做维护，远程接入方式。</p>
-<p>3、是否单独网段（比如10.10.10.0/26），考虑后期集群资源拓展。</p>
-<p>4、如何远程连接监控和维护？用于一般日常监控维护和应急处理。</p>
-<p>5、机房是否内网NTP服务提供，用于集群对时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo &quot;--------------防火墙---------------------&quot;&gt;&gt;info.txt</span><br><span class="line">firewall-cmd --state &gt;&gt;info.txt</span><br><span class="line">echo &quot;--------------网卡---------------------&quot;&gt;&gt;info.txt</span><br><span class="line">ifconfig -a &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------运行中的程序--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">systemctl list-units -t service --state=running &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------磁盘情况--------------------&quot; &gt;&gt;info.txt </span><br><span class="line">df -Th | grep &#x27;Filesystem\|^/dev/sd*\|^/dev/vd*\|^/dev/hd*\|^/dev/mapper*\|^/dev/md*&#x27; &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------内存情况--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">free -h &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------处理器情况--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">cat /proc/cpuinfo &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------硬盘--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">fdisk -l &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------结束--------------------&quot;&gt;&gt;info.txt</span><br></pre></td></tr></table></figure>
+  <h2 id="Stack">Stack</h2>
+<h3 id="特点：">特点：</h3>
+<ul>
+<li>LIFO（Last In, First Out）：最后进来的元素最先被处理。</li>
+<li>常用操作：push（入栈）、pop（出栈）、peek（查看栈顶元素）。</li>
+</ul>
+<h3 id="性能：">性能：</h3>
+<ul>
+<li>入栈（push）和出栈（pop）：时间复杂度为 O(1)。</li>
+<li>空间复杂度：与存储的元素数量成正比，为 O(n)。</li>
+</ul>
+<h3 id="优势：">优势：</h3>
+<ul>
+<li>操作简单，适用于需要后进先出（LIFO）策略的场景，如函数调用栈、表达式求值等。</li>
+<li>内存使用效率高。</li>
+</ul>
+<h3 id="劣势：">劣势：</h3>
+<ul>
+<li>访问非栈顶元素效率低，需要遍历。</li>
+</ul>
+<h2 id="Queue">Queue</h2>
+<h3 id="特点：-2">特点：</h3>
+<ul>
+<li>FIFO（First In, First Out）：最先进来的元素最先被处理。</li>
+<li>常用操作：enqueue（入队）、dequeue（出队）、peek（查看队首元素）。</li>
+</ul>
+<h3 id="性能：-2">性能：</h3>
+<ul>
+<li>入队（enqueue）和出队（dequeue）：时间复杂度为 O(1)（使用链表或循环数组实现时）。</li>
+<li>空间复杂度：与存储的元素数量成正比，为 O(n)。</li>
+</ul>
+<h3 id="优势：-2">优势：</h3>
+<ul>
+<li>适用于需要先进先出（FIFO）策略的场景，如任务调度、缓冲区管理等。</li>
+<li>操作简单，入队和出队操作效率高。</li>
+</ul>
+<h3 id="劣势：-2">劣势：</h3>
+<ul>
+<li>访问非队首元素效率低，需要遍历。</li>
+</ul>
+<h2 id="PriorityQueue">PriorityQueue</h2>
+<h3 id="特点：-3">特点：</h3>
+<ul>
+<li>元素按照优先级顺序进行出队，优先级高的元素先出队。</li>
+<li>常用操作：insert（插入元素）、remove（移除元素）、peek（查看优先级最高的元素）。</li>
+</ul>
+<h3 id="性能：-3">性能：</h3>
+<ul>
+<li>插入（insert）：时间复杂度为 O(log n)（使用二叉堆实现时）。</li>
+<li>删除（remove）：时间复杂度为 O(log n)（删除优先级最高的元素）。</li>
+<li>查看优先级最高元素（peek）：时间复杂度为 O(1)。</li>
+</ul>
+<h3 id="优势：-3">优势：</h3>
+<ul>
+<li>适用于需要动态管理元素优先级的场景，如任务调度、路径规划（如Dijkstra算法）、事件驱动模拟等。</li>
+<li>可以快速获取和删除优先级最高的元素。</li>
+</ul>
+<h3 id="劣势：-3">劣势：</h3>
+<ul>
+<li>插入和删除操作比 Stack 和 Queue 要复杂，时间复杂度较高。</li>
+<li>需要维护优先级，内存开销可能较大。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<ul>
+<li>Stack：适用于需要 LIFO 策略的场景，入栈和出栈操作效率高（O(1)），但访问非栈顶元素效率低。</li>
+<li>Queue：适用于需要 FIFO 策略的场景，入队和出队操作效率高（O(1)），但访问非队首元素效率低。</li>
+<li>PriorityQueue：适用于需要根据优先级动态管理元素的场景，可以快速获取和删除优先级最高的元素（O(log n)），但插入和删除操作比 Stack 和 Queue 要复杂，时间复杂度较高。</li>
+</ul>
 
 </div>
 
@@ -199,7 +261,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>空空</div>
-      <div>2023-09-01</div>
+      <div>2024-07-12</div>
     </div>
   </div>
 

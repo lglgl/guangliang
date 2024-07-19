@@ -11,7 +11,7 @@
 
     <title>
         
-          李广良
+          图论 - 李广良
         
     </title>
 
@@ -154,12 +154,42 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <p>1、主机的位置信息确认（机房位置、机柜、机架），主机的机器信息（磁盘RAID模式，网卡型号和冗余带宽）。</p>
-<p>2、是否有堡垒机做集中接入？还是固定外部可访问IP做维护，远程接入方式。</p>
-<p>3、是否单独网段（比如10.10.10.0/26），考虑后期集群资源拓展。</p>
-<p>4、如何远程连接监控和维护？用于一般日常监控维护和应急处理。</p>
-<p>5、机房是否内网NTP服务提供，用于集群对时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo &quot;--------------防火墙---------------------&quot;&gt;&gt;info.txt</span><br><span class="line">firewall-cmd --state &gt;&gt;info.txt</span><br><span class="line">echo &quot;--------------网卡---------------------&quot;&gt;&gt;info.txt</span><br><span class="line">ifconfig -a &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------运行中的程序--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">systemctl list-units -t service --state=running &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------磁盘情况--------------------&quot; &gt;&gt;info.txt </span><br><span class="line">df -Th | grep &#x27;Filesystem\|^/dev/sd*\|^/dev/vd*\|^/dev/hd*\|^/dev/mapper*\|^/dev/md*&#x27; &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------内存情况--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">free -h &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------处理器情况--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">cat /proc/cpuinfo &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------硬盘--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">fdisk -l &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------结束--------------------&quot;&gt;&gt;info.txt</span><br></pre></td></tr></table></figure>
+  <h2 id="1-Disconnected-Graph-图形不连通-断开图">1. Disconnected Graph (图形不连通 / 断开图)</h2>
+<p>English: A graph in which there are at least two vertices such that there is no path connecting them.<br>
+中文: 一个图中至少有两个顶点之间没有路径相连。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A---B         E---F</span><br><span class="line">    |</span><br><span class="line">    C---D</span><br></pre></td></tr></table></figure>
+<h2 id="2-Bipartite-Graph-二部图-二分图">2. Bipartite Graph (二部图 / 二分图)</h2>
+<p><code>bipartite ［bipartit］; adj. 二深裂的［指叶子］；由双方组成的，两党的，由两党组成的.</code></p>
+<p>English: A graph whose vertices can be divided into two disjoint and independent sets such that every edge connects a vertex in one set to a vertex in the other set.<br>
+中文: 将顶点分成两类，边只存在不同类的顶点之间，同类顶点之间没有边。</p>
+<p><strong>应用：</strong></p>
+<p>二部图在许多领域的应用中非常常见，包括：</p>
+<ul>
+<li>
+<p>最大匹配问题：寻找图中不存在共用顶点的最大边集。</p>
+</li>
+<li>
+<p>婚姻问题：将 n 位女士与 n 位男士配对，使得每位女士都嫁给一位男士，每位男士都娶一位女士。</p>
+</li>
+<li>
+<p>流量网络：表示商品在网络中从源点到汇点的流动。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Set 1: A, C, E</span><br><span class="line">Set 2: B, D, F</span><br><span class="line"></span><br><span class="line">  A--B</span><br><span class="line">   \/</span><br><span class="line">   /\</span><br><span class="line">  C--D</span><br><span class="line">   \/</span><br><span class="line">   /\</span><br><span class="line">  E--F</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-Planar-Graph-平面图">3. Planar Graph (平面图)</h2>
+<p>English: A graph that can be drawn on a plane without any edges crossing each other.<br>
+中文: 一种图，可以在平面上绘制而<code>不</code>出现任何边<code>交叉</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   A</span><br><span class="line">  / \</span><br><span class="line"> /   \</span><br><span class="line">B-----C</span><br><span class="line">|     |</span><br><span class="line">D-----E</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="4-Subgraph-子图">4. Subgraph (子图)</h2>
+<p>English: A graph formed from a subset of the vertices and edges of another graph.<br>
+中文: 从另一个图的顶点和边的子集中形成的图。（可以没有一些边和点）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Original Graph:</span><br><span class="line">A---B---C</span><br><span class="line">|       |</span><br><span class="line">D---E---F</span><br><span class="line"></span><br><span class="line">Subgraph:</span><br><span class="line">A---B</span><br><span class="line">|  </span><br><span class="line">D---E</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="5-Spanning-Subgraph-生成子图">5. Spanning Subgraph (生成子图)</h2>
+<p><code>中古高地德語 spān ← 古高地德語 spān (“木屑，削片”) ← 原始日耳曼語 *spēnuz (“碎屑，削片”)。 与古英語 spōn (“木片，碎屑”)同源</code><br>
+English: A subgraph that includes all the vertices of the original graph.<br>
+中文: 包含原图所有顶点的子图。（可以没有一些边，但不能少点）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Original Graph:</span><br><span class="line">A---B</span><br><span class="line">|   |</span><br><span class="line">C---D---E</span><br><span class="line"></span><br><span class="line">Spanning Subgraph:</span><br><span class="line">A---B</span><br><span class="line">|  </span><br><span class="line">C---D---E</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="6-Separation-edges-and-separation-vertices">6. Separation edges and separation vertices</h2>
 
 </div>
 
@@ -199,7 +229,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>空空</div>
-      <div>2023-09-01</div>
+      <div>2024-07-10</div>
     </div>
   </div>
 

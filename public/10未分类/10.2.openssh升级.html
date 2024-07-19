@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          10.2.openssh升级(版本：openssh-9.0p1) - 李广良
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>李广良</span>
+  </a>
+</div>
+    <div id="menu" class="book-menu hide">
+  <h3 id="04操作系统">04操作系统</h3>
+<ul>
+<li><a href="/04%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.1.%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA.html">4.1.系统加固</a></li>
+<li><a href="/04%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.2.%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA2.html">4.2.系统加固2</a></li>
+</ul>
+<h3 id="05高级算法">05高级算法</h3>
+<ul>
+<li><a href="/05%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95/%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E7%9B%AE%E5%BD%95.html">高级算法目录</a></li>
+<li><a href="/05%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA.html">图论</a></li>
+<li><a href="/05%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95/Kruskal%E7%AE%97%E6%B3%95.html">Kruskal算法</a></li>
+</ul>
+<h4 id="06虚拟化">06虚拟化</h4>
+<ul>
+<li><a href="/06%E8%99%9A%E6%8B%9F%E5%8C%96/6.1.%E8%99%9A%E6%8B%9F%E5%8C%96ESXi%E4%B8%8EKVM%E5%AF%B9%E6%AF%94.html">6.1.虚拟化ESXi与KVM对比</a></li>
+</ul>
+<h3 id="07中间件">07中间件</h3>
+<ul>
+<li><a href="/07%E4%B8%AD%E9%97%B4%E4%BB%B6/7.1.Zookeeper%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2.html">7.1.Zookeeper集群环境部署</a></li>
+<li><a href="/07%E4%B8%AD%E9%97%B4%E4%BB%B6/7.2.Mysql%E5%8F%8C%E4%B8%BB%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2.html">7.2.Mysql双主集群部署</a></li>
+<li></li>
+</ul>
+<h3 id="08自动化工具">08自动化工具</h3>
+<ul>
+<li><a href="/08%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/Ansible%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.html">Ansible安装配置</a></li>
+</ul>
+<h3 id="09异常处理">09异常处理</h3>
+<ul>
+<li><a href="/09%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/docker%E6%8F%90%E7%A4%BA%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3.html">docker提示磁盘空间不足</a></li>
+</ul>
+<h3 id="10未分类">10未分类</h3>
+<ul>
+<li><a href="/10%E6%9C%AA%E5%88%86%E7%B1%BB/10.1.linux%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E5%88%B0NAS%E6%9C%8D%E5%8A%A1%E5%99%A8.html">linux系统备份到NAS服务器</a></li>
+<li><a href="/10%E6%9C%AA%E5%88%86%E7%B1%BB/10.2.openssh%E5%8D%87%E7%BA%A7.html">openssh升级（openssh-9.0p1）</a></li>
+</ul>
+<h3 id="99关于面试">99关于面试</h3>
+<ul>
+<li><a href="/99%E5%85%B3%E4%BA%8E%E9%9D%A2%E8%AF%95/01.linux.html">99.1.linux系列</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <p><code>说明：在Centos7.6的自带SSH组件早些年已经爆出漏洞，虽然项目运行在内网，但修复仍然有必要性。</code></p>
+<h3 id="前置准备">前置准备</h3>
+<p>上传文件夹到root目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r /root/openssh_fix root@10.128.136.138:/root/</span><br></pre></td></tr></table></figure>
+<h3 id="1、安装telnet-telnet-server">1、安装telnet/telnet-server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#下载telnet</span></span><br><span class="line"><span class="comment">#yum -y install telnet telnet-server --downloadonly --downloaddir=/root/telnet</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装telnet-server</span></span><br><span class="line"><span class="built_in">cd</span> /root/openssh_fix/telnet</span><br><span class="line">yum localinstall *.rpm -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动并设置开机自启动</span></span><br><span class="line">systemctl start telnet.socket &amp;&amp; systemctl <span class="built_in">enable</span> telnet.socket</span><br><span class="line">systemctl status telnet.socket </span><br><span class="line"></span><br><span class="line">netstat -ntlp |grep 23</span><br></pre></td></tr></table></figure>
+<h3 id="2、放开防火墙">2、放开防火墙</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">防火墙放行23端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=23/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## 验证telnet，确认可连接</span></span></span><br><span class="line">telnet 10.128.136.138</span><br></pre></td></tr></table></figure>
+<h3 id="3、安装依赖">3、安装依赖</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">下载编译依赖包</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yum install -y gcc gcc-c++ glibc make automake autoconf zlib zlib-devel pcre-devel  perl perl-Test-Simple --downloadonly --downloaddir=/root/telnet --downloadonly --downloaddir=/root/openssh_fix/relypackage</span></span><br><span class="line">cd /root/openssh_fix/relypackage</span><br><span class="line">yum localinstall *.rpm -y</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yum install openssl openssl-devel --downloadonly --downloaddir=/root/ssl</span></span><br><span class="line">cd /root/openssh_fix/ssl</span><br><span class="line">yum localinstall *.rpm -y</span><br></pre></td></tr></table></figure>
+<h3 id="4、卸载openssh">4、卸载openssh</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止openssh服务</span></span><br><span class="line">systemctl stop sshd</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">cp -a /etc/ssh /etc/ssh.bak</span><br><span class="line">cp -a /usr/sbin/sshd /usr/sbin/sshd.bak</span><br><span class="line">cp -a /usr/bin/ssh /usr/bin/ssh.bak</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载</span></span><br><span class="line">[root@localhost telnet]# rpm -qa | grep openssh</span><br><span class="line">openssh-clients-7.4p1-16.el7.x86_64</span><br><span class="line">openssh-7.4p1-16.el7.x86_64</span><br><span class="line">openssh-server-7.4p1-16.el7.x86_64</span><br><span class="line">[root@localhost telnet]# rpm -e `rpm -qa | grep openssh` --nodeps</span><br><span class="line">[root@localhost telnet]# rpm -qa | grep openssh</span><br></pre></td></tr></table></figure>
+<h3 id="5、安装openssh">5、安装openssh</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">cd /root/openssh_fix/openssh9</span><br><span class="line">tar -zxvf openssh-9.0p1.tar.gz</span><br><span class="line">cd openssh-9.0p1</span><br><span class="line">cat INSTALL</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置编译</span></span><br><span class="line">./configure --prefix=/usr/local/openssh --with-ssl-dir=/usr/local/openssl --with-zlib</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译</span></span><br><span class="line">make</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装</span></span><br><span class="line">make install</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查旧版本启动文件</span></span><br><span class="line">ls /usr/lib/systemd/system/ssh*</span><br><span class="line">rm -f /usr/lib/systemd/system/ssh*</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拷贝启动脚本</span></span><br><span class="line">cp contrib/redhat/sshd.init /etc/init.d/sshd</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">建立软连接</span></span><br><span class="line">ln -s /usr/local/openssh/etc /etc/ssh</span><br><span class="line">ln -s /usr/local/openssh/sbin/sshd /usr/sbin/</span><br><span class="line">ln -s /usr/local/openssh/bin/* /usr/bin/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动并设置开机自启动</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl start sshd &amp;&amp; systemctl enable sshd</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看状态，已经是 running 状态了</span></span><br><span class="line">systemctl status sshd</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认版本</span></span><br><span class="line">ssh -V</span><br></pre></td></tr></table></figure>
+<h3 id="6、修改openssh配置">6、修改openssh配置</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/openssh/etc/sshd_config</span><br><span class="line"></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启</span></span><br><span class="line">systemctl restart sshd </span><br></pre></td></tr></table></figure>
+<h3 id="7、停止telnet服务">7、停止telnet服务</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop telnet.socket</span><br><span class="line">systemctl disable telnet.socket</span><br></pre></td></tr></table></figure>
+<h3 id="7、参考">7、参考</h3>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/553027729?utm_id=0">https://zhuanlan.zhihu.com/p/553027729?utm_id=0</a></p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image-->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="J"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>空空</div>
+      <div>2024-07-20</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">EXPAND</a>
+  <a onclick="go_top()">TOP</a>
+  <a onclick="go_bottom()">BOTTOM</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

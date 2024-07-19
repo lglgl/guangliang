@@ -11,7 +11,7 @@
 
     <title>
         
-          李广良
+          2019年题目 - 李广良
         
     </title>
 
@@ -154,12 +154,25 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <p>1、主机的位置信息确认（机房位置、机柜、机架），主机的机器信息（磁盘RAID模式，网卡型号和冗余带宽）。</p>
-<p>2、是否有堡垒机做集中接入？还是固定外部可访问IP做维护，远程接入方式。</p>
-<p>3、是否单独网段（比如10.10.10.0/26），考虑后期集群资源拓展。</p>
-<p>4、如何远程连接监控和维护？用于一般日常监控维护和应急处理。</p>
-<p>5、机房是否内网NTP服务提供，用于集群对时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo &quot;--------------防火墙---------------------&quot;&gt;&gt;info.txt</span><br><span class="line">firewall-cmd --state &gt;&gt;info.txt</span><br><span class="line">echo &quot;--------------网卡---------------------&quot;&gt;&gt;info.txt</span><br><span class="line">ifconfig -a &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------运行中的程序--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">systemctl list-units -t service --state=running &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------磁盘情况--------------------&quot; &gt;&gt;info.txt </span><br><span class="line">df -Th | grep &#x27;Filesystem\|^/dev/sd*\|^/dev/vd*\|^/dev/hd*\|^/dev/mapper*\|^/dev/md*&#x27; &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------内存情况--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">free -h &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------处理器情况--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">cat /proc/cpuinfo &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------硬盘--------------------&quot;&gt;&gt;info.txt</span><br><span class="line">fdisk -l &gt;&gt;info.txt</span><br><span class="line">echo &quot;---------------结束--------------------&quot;&gt;&gt;info.txt</span><br></pre></td></tr></table></figure>
+  <p><strong>EN:</strong></p>
+<p>(a) Write a straightforward recursive function to calculate Fibonacci number.</p>
+<p>(b) What is the time complexity of the function in (1)(a) above, in big O? Explain your answer.</p>
+<p>© What is dynamic programming? Apply dynamic programming approach to calculate a Fibonacci number, and describe the way dynamic programming calculates the Fibonacci number using an appropriate example.</p>
+<p><strong>ZH:</strong></p>
+<p>（a）写一个直接的递归函数来计算斐波那契数。</p>
+<p>（b）上面（1）（a）中的函数的时间复杂度是什么，大 O 是多少？解释你的答案。</p>
+<p>（c）什么是动态规划？应用动态规划方法来计算斐波那契数，并描述动态规划使用适当的示例计算斐波那契数的方法。</p>
+<p><strong>中文解释：</strong></p>
+<p><strong>（a）斐波那契数的递归函数</strong></p>
+<p>斐波那契数列是一个数列，其中前两个数为 0 和 1，而从第三个数开始，每个数都是前两个数的和。一个简单的递归函数可以用于计算斐波那契数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fibonacci</span>(<span class="params">n</span>):</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> n &lt; <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> fibonacci(n-<span class="number">1</span>) + fibonacci(n-<span class="number">2</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>（b）时间复杂度</strong></p>
+<p>给定自然数 n，递归函数 fibonacci(n) 的时间复杂度为 O(2^n)。这是因为对于每个输入 n，该函数都会递归地调用自身两次，并且这种模式会一直重复到 n 达到 0 或 1。</p>
+<p><strong>（c）动态规划</strong></p>
+<p>动态规划是一种解决优化问题的技术，它将问题分解成子问题，然后通过存储子问题的解决方案来避免重复计算。对于斐波那契数，我们可以使用动态规划来计算斐波那契数，方法是存储已计算出的斐波那契数。</p>
+<p>以下是动态规划方法计算斐波那契数的一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fibonacci_dp</span>(<span class="params">n</span>):</span><br><span class="line"></span><br><span class="line">fib_cache = [<span class="number">0</span>, <span class="number">1</span>]  <span class="comment"># 存储已计算出的斐波那契数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> n &gt;= <span class="built_in">len</span>(fib_cache):</span><br><span class="line"></span><br><span class="line">next_fib = fib_cache[-<span class="number">1</span>] + fib_cache[-<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">fib_cache.append(next_fib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> fib_cache[n]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在该实现中，fib_cache 列表存储已计算出的斐波那契数。当 n 大于 fib_cache 的长度时，它将计算并存储下一个斐波那契数。通过使用 fib_cache，动态规划方法避免了重复计算，从而将时间复杂度从 O(2^n) 降低到 O(n)。</p>
 
 </div>
 
@@ -199,7 +212,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>空空</div>
-      <div>2023-09-01</div>
+      <div>2024-07-10</div>
     </div>
   </div>
 
