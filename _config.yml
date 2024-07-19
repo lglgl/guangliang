@@ -4,7 +4,7 @@ author_img:               # filepath of author image
 favicon_url: favicon.png  # filepath of favicon
 theme: book
 zoom_image: true
-permalink: :title.html
+permalink: :title
 title: 李广良
 
 

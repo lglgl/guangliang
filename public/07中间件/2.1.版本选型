@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          李广良
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>李广良</span>
+  </a>
+</div>
+    <div id="menu" class="book-menu hide">
+  <h3 id="04操作系统">04操作系统</h3>
+<ul>
+<li><a href="/04%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.1.%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA.html">4.1.系统加固</a></li>
+<li><a href="/04%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.2.%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA2.html">4.2.系统加固2</a></li>
+</ul>
+<h3 id="05高级算法">05高级算法</h3>
+<ul>
+<li><a href="/05%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95/%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E7%9B%AE%E5%BD%95.html">高级算法目录</a></li>
+<li><a href="/05%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA.html">图论</a></li>
+<li><a href="/05%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95/Kruskal%E7%AE%97%E6%B3%95.html">Kruskal算法</a></li>
+</ul>
+<h3 id="06虚拟化">06虚拟化</h3>
+<ul>
+<li><a href="/06%E8%99%9A%E6%8B%9F%E5%8C%96/6.1.%E8%99%9A%E6%8B%9F%E5%8C%96ESXi%E4%B8%8EKVM%E5%AF%B9%E6%AF%94.html">6.1.虚拟化ESXi与KVM对比</a></li>
+</ul>
+<h3 id="07中间件">07中间件</h3>
+<ul>
+<li><a href="/07%E4%B8%AD%E9%97%B4%E4%BB%B6/7.1.Zookeeper%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2.html">7.1.Zookeeper集群环境部署</a></li>
+<li><a href="/07%E4%B8%AD%E9%97%B4%E4%BB%B6/7.2.Mysql%E5%8F%8C%E4%B8%BB%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2.html">7.2.Mysql双主集群部署</a></li>
+</ul>
+<h3 id="08自动化工具">08自动化工具</h3>
+<ul>
+<li><a href="/08%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/Ansible%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.html">Ansible安装配置</a></li>
+</ul>
+<h3 id="09异常处理">09异常处理</h3>
+<ul>
+<li><a href="/09%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/docker%E6%8F%90%E7%A4%BA%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3.html">docker提示磁盘空间不足</a></li>
+</ul>
+<h3 id="10未分类">10未分类</h3>
+<ul>
+<li><a href="/10%E6%9C%AA%E5%88%86%E7%B1%BB/10.1.linux%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E5%88%B0NAS%E6%9C%8D%E5%8A%A1%E5%99%A8.html">linux系统备份到NAS服务器</a></li>
+<li><a href="/10%E6%9C%AA%E5%88%86%E7%B1%BB/10.2.openssh%E5%8D%87%E7%BA%A7.html">openssh升级-openssh-9.0p1</a></li>
+</ul>
+<h3 id="99关于面试">99关于面试</h3>
+<ul>
+<li><a href="/99%E5%85%B3%E4%BA%8E%E9%9D%A2%E8%AF%95/01.linux.html">99.1.linux系列</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">中间件版本评估原则：</span><br><span class="line">1、涉及代码兼容性，以开发给出版本为准。</span><br><span class="line">2、未有明确版本要求的，使用latest stable release。</span><br></pre></td></tr></table></figure>
+<h3 id="1-JDK版本">1.JDK版本</h3>
+<p>当前开发程序使用JDK 1.8，暂不做改变，中间件环境以JDK1.8为基准。</p>
+<ul>
+<li>
+<p>JDK1.8新特性：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/9/whatsnew/toc.htm#JSNEW-GUID-C23AFD78-C777-460B-8ACE-58BE5EA681F6">Java Platform, Standard Edition What’s New in Oracle JDK 9, Release 9</a></p>
+</li>
+<li>
+<p>JDK1.9新特性：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/9/whatsnew/toc.htm#JSNEW-GUID-C23AFD78-C777-460B-8ACE-58BE5EA681F6">Java Platform, Standard Edition What’s New in Oracle JDK 9, Release 9</a></p>
+</li>
+</ul>
+<h3 id="2-Zookeeper版本">2.Zookeeper版本</h3>
+<p><strong>Apache ZooKeeper 3.7.1 （最新稳定版）</strong></p>
+<p>ZooKeeper版本更新规律，当前3.8为主线开发，同时维护3.5/3.6/3.7，各分支发版顺序无规律。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">发布策略</span><br><span class="line">Apache ZooKeeper 社区一次支持两个发布分支：稳定和当前。ZooKeeper的稳定版本是3.7.x，当前版本是3.8.x。一旦发布新的次要版本，稳定版本预计将很快退役，大约半年后将宣布为生命周期结束。在半年宽限期内，预计只会发布该版本的安全和关键修复。在宣布EoL之后，社区不再提供进一步的补丁。所有ZooKeeper版本都可以从官方Apache档案中访问。</span><br><span class="line"></span><br><span class="line">6 August, 2014: release 3.5.0-alpha available</span><br><span class="line">04 March, 2020: release 3.6.0 available</span><br><span class="line">27 March, 2021: release 3.7.0 available</span><br><span class="line">7 March, 2022: release 3.8.0 available</span><br><span class="line"></span><br><span class="line">Apache ZooKeeper 3.7.1 (latest stable release)</span><br><span class="line">Apache ZooKeeper 3.6.4 (3.6 is EoL since 30th of December, 2022)</span><br><span class="line">Apache ZooKeeper 3.5.10 (3.5 is EoL since 1st of June, 2022)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新说明：<a target="_blank" rel="noopener" href="https://zookeeper.apache.org/doc/r3.8.1/releasenotes.html">ZooKeeper：因为协调分布式系统是一个动物园 (apache.org)</a></li>
+</ul>
+<h3 id="3-Redis版本">3.Redis版本</h3>
+<p><strong>Redis 7.0.11 (Latest Stable）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在Redis的版本计划中，版本号第二位为奇数，为非稳定版本，如2.7、2.9、3.1；版本号第二为偶数，为稳定版本如2.6、2.8、3.0；一般来说当前奇数版本是下一个稳定版本的开发版本，如2.9是3.0的开发版本。</span><br><span class="line"></span><br><span class="line">Redis 7.0 RC1   Released Mon Jan 31 12:00:00 IST 2022</span><br><span class="line">Redis 7.0.10 Released Mon Mar 20 16:00:00 IST 2023</span><br><span class="line">Redis 7.0.11 Released Mon Apr 17 16:00:00 IST 2023</span><br></pre></td></tr></table></figure>
+<h3 id="4-MinIO版本">4.MinIO版本</h3>
+<p><strong>MinIO Operator 的最新稳定版本：5.0.4</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">minio以日期为版本命名，每周更新一次。GitHub项目有tags标识。</span><br><span class="line"></span><br><span class="line">官网记录的 MinIO 最新稳定版本的 Linux 平台上 MinIO 部署的操作、管理和开发：发布.2023-05-04T21-44-30Z。</span><br><span class="line">https://www.minio.org.cn/docs/minio/linux/index.html</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/minio/minio">GitHub - minio/minio: High Performance Object Storage for AI</a></p>
+</li>
+<li>
+<p>历史版本：<a target="_blank" rel="noopener" href="https://dl.minio.org.cn/server/minio/release/linux-amd64/archive/">dl.minio.org.cn/server/minio/release/linux-amd64/archive/</a></p>
+</li>
+</ul>
+<h3 id="5-MySQL版本">5.MySQL版本</h3>
+<p>暂定<strong>MySQL 8.0.32</strong></p>
+<p>MySQL不区分具体是否稳定版，最新一次子版本发布于今年1月，平均三个月到半年发布一个小版本。</p>
+<ul>
+<li>生命周期：<a target="_blank" rel="noopener" href="https://endoflife.software/applications/databases/mysql">EOL MySQL | End of Life (EOL) | Oracle Corporation | Lifecycle</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">版本	发布时间	上一年版本	上一年发布时间</span><br><span class="line">8.0.32	2023.1.17	8.0.28	2022.1.18</span><br><span class="line">8.0.31	2022.10.11	8.0.27	2021.10.10</span><br><span class="line">8.0.30	2022.7.26	8.0.26	2021.7.20</span><br><span class="line">8.0.29	2022.4.26	8.0.25 8.0.24	2021.5.11</span><br><span class="line"></span><br><span class="line">mysql-5.7.41-1.el7.x86_64	Dec 9, 2022</span><br><span class="line">mysql-5.7.40-1.el7.x86_64	Aug 31, 2022</span><br><span class="line">mysql-5.7.39-1.el7.x86_64	Jun 13, 2022</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Current releases	Release	Release date	End of life	</span><br><span class="line">MySQL 8.0	April 19, 2018	April, 2026	</span><br><span class="line">MySQL 5.7	October 21, 2015	October 21, 2023	</span><br><span class="line">All releases</span><br><span class="line">MySQL 8.0	April 19, 2018	April, 2026	</span><br><span class="line">MySQL 5.7	October 21, 2015	October 21, 2023	</span><br><span class="line">MySQL 5.6	February 5, 2013	February 5, 2021	</span><br><span class="line">MySQL 5.5	December 3, 2010	December 3, 2018	</span><br><span class="line">MySQL 5.1	November 14, 2008	December 31, 2013</span><br></pre></td></tr></table></figure>
+<h3 id="6-Nacos版本">6.Nacos版本</h3>
+<p><strong>官网推荐稳定版：Nacos 2.1.1</strong></p>
+<ul>
+<li>博客：<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/blog/index.html">https://nacos.io/zh-cn/blog/index.html</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/alibaba/nacos/releases</span><br><span class="line"></span><br><span class="line">Nacos 依赖 Java 环境来运行。如果您是从代码开始构建并运行Nacos，还需要为此配置 Maven环境，请确保是在以下版本环境中安装使用:</span><br><span class="line">64 bit OS，支持 Linux/Unix/Mac/Windows，推荐选用 Linux/Unix/Mac。</span><br><span class="line">64 bit JDK 1.8+；下载 &amp; 配置。</span><br><span class="line">Maven 3.2.x+；下载 &amp; 配置。</span><br><span class="line"></span><br><span class="line">最近更新：</span><br><span class="line">Apr 11, 2023  Nacos 2.2.2发布，优化启动体验和鉴权提示</span><br><span class="line">Mar 20, 2023  Nacos 多个新版本发布，rust-sdk完全适配完成</span><br></pre></td></tr></table></figure>
+<h3 id="7-Kafka版本">7.Kafka版本</h3>
+<p><strong>Kafka 3.4.0</strong></p>
+<ul>
+<li>官网：<a target="_blank" rel="noopener" href="https://kafka.apache.org/downloads">Apache Kafka</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.4.0 is the latest release. The current stable version is 3.4.0</span><br></pre></td></tr></table></figure>
+<h3 id="8-Elasticsearch版本">8.Elasticsearch版本</h3>
+<p><strong>最新版本：8.8.0</strong></p>
+<ul>
+<li>
+<p>官网版本：[Starting with the Elasticsearch Platform and its Solutions <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/welcome-to-elastic/8.8/index.html">8.8] | Elastic</a></p>
+</li>
+<li>
+<p>生命周期：<a target="_blank" rel="noopener" href="https://www.elastic.co/cn/support/matrix">支持一览表 | Elastic</a></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Elasticsearch	支持截止日期											维护至</span><br><span class="line">8.x																	2024 年 8 月 10 日，或 9.0 发布日期（待定）的 6 个月后</span><br><span class="line">7.17.x			2023 年 8 月 1 日，或 9.0.0 发布日期，具体以较晚者为准	 2023 年 8 月 1 日，或 9.0.0 发布日期，具体以较晚者为准</span><br></pre></td></tr></table></figure>
+<h3 id="9-Nginx版本">9.Nginx版本</h3>
+<p><strong>Nginx-1.24.0 (Stable version)</strong></p>
+<ul>
+<li>官网：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">nginx: download</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Changes with nginx 1.24.0                                        11 Apr 2023</span><br><span class="line">1.24.x stable branch.</span><br><span class="line">Changes with nginx 1.23.4                                        28 Mar 2023</span><br><span class="line">Changes with nginx 1.23.3                                        13 Dec 2022</span><br><span class="line">Changes with nginx 1.23.0                                        21 Jun 2022</span><br><span class="line">Changes with nginx 1.21.6                                        25 Jan 2022</span><br></pre></td></tr></table></figure>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image-->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="J"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>空空</div>
+      <div>2023-09-01</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">EXPAND</a>
+  <a onclick="go_top()">TOP</a>
+  <a onclick="go_bottom()">BOTTOM</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

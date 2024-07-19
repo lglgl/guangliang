@@ -11,7 +11,7 @@
 
     <title>
         
-          Hello World - 李广良
+          李广良
         
     </title>
 
@@ -153,87 +153,60 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h2 id="高级算法目录">高级算法目录</h2>
-<h3 id="1-1-BFS-Breadth-First-Search">1.1. BFS (Breadth-First Search)</h3>
-<p>广度优先搜索（BFS）是一种图搜索算法，从起始节点开始，逐层向外扩展，访问所有相邻节点。BFS 使用队列来跟踪要访问的节点顺序，适用于寻找最短路径（在无权图中）和检测图的连通性。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空队列 <code>queue</code> 和一个空集合 <code>visited</code>。</li>
-<li>将起始节点放入队列和访问集合中。</li>
-<li>当队列不为空时，重复以下步骤：
+  <h2 id="虚拟化ESXi、KVM对比">虚拟化ESXi、KVM对比</h2>
+<h3 id="1-官方介绍">1. 官方介绍</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">全虚拟化（Full Virtualization）：完全模拟底层硬件，虚拟机无法感知自己运行在虚拟化环境中，因此虚拟机可以运行未经修改的操作系统和应用程序。这种虚拟化技术的代表是 VMware。</span><br><span class="line">半虚拟化（Paravirtualization）：虚拟机知道自己运行在虚拟化环境中，虚拟机操作系统需要进行修改以便能够与虚拟化层进行通信，因此半虚拟化技术要求操作系统需要支持半虚拟化接口。这种虚拟化技术的代表是 Xen。</span><br><span class="line">操作系统虚拟化（Operating  System  Virtualization）：也称为容器化，是指通过对操作系统进行虚拟化来实现多个操作系统实例之间的隔离。每个容器都运行在主机操作系统的用户空间中，共享主机操作系统的内核。这种虚拟化技术的代表是  Docker。</span><br><span class="line">硬件辅助虚拟化（Hardware-assisted Virtualization）：是指利用CPU和主板的硬件虚拟化扩展实现虚拟化，这样可以提高虚拟化的性能。这种虚拟化技术的代表是 KVM。</span><br><span class="line">无虚拟化（Bare Metal）虚拟化，它不需要虚拟化层，直接在裸机上运行虚拟机，能够提供更高的性能和更好的资源利用率，但需要硬件支持。</span><br></pre></td></tr></table></figure>
+<p>EXSi：商业版</p>
 <ul>
-<li>弹出队列中的节点，将其标记为已访问。</li>
-<li>将所有未访问过的邻居节点加入队列和访问集合。</li>
+<li><a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-vSphere/6.5/rn/vsphere-esxi-65u3-release-notes.html">https://docs.vmware.com/cn/VMware-vSphere/6.5/rn/vsphere-esxi-65u3-release-notes.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html">https://docs.vmware.com/cn/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html</a></li>
+<li>报价（基础版1,394.00 美元/三年）：<a target="_blank" rel="noopener" href="https://store-us.vmware.com/products/data-center-virtualization-cloud-infrastructure.html">vSphere Landing Page | VMware</a></li>
 </ul>
-</li>
-</ol>
-<h3 id="1-2-DFS-Depth-First-Search">1.2. DFS (Depth-First Search)</h3>
-<p>深度优先搜索（DFS）是一种图搜索算法，从起始节点开始，沿着一个分支深入，直到不能继续为止，然后回溯并继续搜索未访问的节点。DFS 使用栈来实现递归，适用于检测环、拓扑排序等。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空集合 <code>visited</code> 来记录访问过的节点。</li>
-<li>从起始节点开始调用递归函数 <code>dfs</code>：
+<p>KVM：基于内核的虚拟机 (KVM)</p>
 <ul>
-<li>将当前节点标记为已访问。</li>
-<li>对于当前节点的每个未访问的邻居节点，递归调用 <code>dfs</code> 函数。</li>
+<li>PVE：<a target="_blank" rel="noopener" href="https://www.proxmox.com/en/proxmox-ve/featurs">https://www.proxmox.com/en/proxmox-ve/featurs</a></li>
 </ul>
-</li>
-</ol>
-<h2 id="2-Shortest-Path-Algorithms">2. Shortest Path Algorithms</h2>
-<h3 id="2-1-Dijkstra">2.1. Dijkstra</h3>
-<p>Dijkstra 算法用于计算单源最短路径，适用于边权重非负的图。它使用优先队列来选择当前最短路径的节点，逐步更新其邻居的最短路径。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个优先队列 <code>pq</code> 和距离字典 <code>distances</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>将起始节点和距离 0 放入队列。</li>
-<li>当队列不为空时，重复以下步骤：
+<p>Xenserver免费与付费区别</p>
+<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/shenhj/420500">XenServer学习笔记二 XenServer免费版本和收费版本的区别_51CTO博客_xenserver免费版和收费版区别</a><br>
+在线迁移的XenMotion、虚拟机磁盘快照和自动恢复、XenCenter管理软件和虚拟机转化工具软件</p>
+<h3 id="2-虚拟化功能">2. 虚拟化功能</h3>
 <ul>
-<li>弹出队列中距离最小的节点。</li>
-<li>对于该节点的每个邻居节点，如果通过当前节点到达该邻居节点的路径距离更短，则更新距离并将其加入队列。</li>
+<li>Multi Server Management with XenCenter GUI：多服务器图形化管理</li>
+<li>Active Directory Integration：AD域集成</li>
+<li>Dynamic Memory Control：内存动态控制</li>
+<li>Live Memory VM Snapshot and Revert：快照热恢复</li>
+<li>Live VM Migration：服务器热迁移</li>
+<li>Scheduled Snapshots：定时快照</li>
+<li>XenServer Conversion Manager：虚拟化服务迁移管理（P2V）</li>
+<li>Maximum Pool Size：最大资源池</li>
+<li>Distributed Virtual Switch Controller：交换机虚拟化</li>
 </ul>
-</li>
-</ol>
-<hr>
-<h3 id="2-2-Bellman-Ford">2.2. Bellman-Ford</h3>
-<p>Bellman-Ford 算法用于计算单源最短路径，适用于包含负权边的图。它通过反复松弛所有边，更新最短路径，最多进行 |V|-1 次迭代。它还能检测负权环。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建距离字典 <code>distance</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>进行 |V|-1 次迭代，每次迭代遍历所有边：
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">免费EXSI缺点：</span><br><span class="line">没有VMware官方支持</span><br><span class="line">每个VM最大支持8vCPU</span><br><span class="line">不能通过vCenter集中管理</span><br><span class="line">vStorage API不能使用</span><br></pre></td></tr></table></figure>
+<h3 id="3-核心需求">3. 核心需求</h3>
 <ul>
-<li>对于每条边 (u, v) 权重为 w，如果通过节点 u 到节点 v 的路径距离更短，则更新距离。</li>
+<li>多服务器图形化管理</li>
+<li>快照管理</li>
 </ul>
-</li>
-<li>再次遍历所有边，检查是否存在负权环。</li>
-</ol>
-<h2 id="3-Pattern-Matching-Algorithms">3. Pattern Matching Algorithms</h2>
-<h3 id="3-1-KMP-Knuth-Morris-Pratt">3.1. KMP (Knuth-Morris-Pratt)</h3>
-<p>KMP 算法用于字符串模式匹配，通过预处理模式串构建部分匹配表，从而在匹配过程中避免重复扫描文本。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建部分匹配表 <code>lps</code>，用于指示在匹配失败时模式串应移动的位置。</li>
-<li>使用两个指针 i 和 j 分别遍历文本和模式串：
+<h3 id="4-满足需求的虚拟化平台">4. 满足需求的虚拟化平台</h3>
+<p>选型确定docker，容器化部署中间件。</p>
+<h3 id="5-测试环境（部署）">5. 测试环境（部署）</h3>
+<p>控制方式，三种均为root用户</p>
 <ul>
-<li>如果匹配成功（text[i] == pattern[j]），则同时向前移动 i 和 j。</li>
-<li>如果 j 达到模式串末尾，说明找到了匹配，记录匹配的起始位置。</li>
-<li>如果匹配失败（text[i] != pattern[j]），根据部分匹配表移动模式串的位置 j。</li>
+<li>EXSi支持WEB和客户端两种方式操作</li>
 </ul>
-</li>
-</ol>
-<h3 id="3-2-Boyer-Moore">3.2. Boyer-Moore</h3>
-<p>Boyer-Moore 算法是另一种字符串模式匹配算法，通过从右向左匹配和使用跳跃表显著减少比较次数，提高匹配效率。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建字符到最后出现位置的映射表 <code>last</code>。</li>
-<li>使用两个指针 s 和 j 分别遍历文本和模式串：
+<p><a target="_blank" rel="noopener" href="https://192.168.10.90/ui/#/host">https://192.168.10.90/ui/#/host</a><br>
+密码：dahouzi@SZ</p>
 <ul>
-<li>从右向左比较模式串和文本，当匹配失败时根据 <code>last</code> 表跳过一定的字符。</li>
-<li>如果完全匹配，记录匹配的起始位置并移动 s。</li>
-<li>如果部分匹配但未完全匹配，根据 <code>last</code> 表调整 j 的位置。</li>
+<li>PVE WEB界面登录操作</li>
 </ul>
-</li>
-</ol>
-<p>这些算法在图论、路径查找和字符串模式匹配领域中具有重要应用，能够有效解决各种复杂问题。</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.215.135:8006/#v1:0:=storage%2Fpve%2Flocal:4:::::::">pve - Proxmox Virtual Environment</a>登陆后关闭弹窗即可，因为是免费许可。</p>
+<p>ip:192.168.215.135</p>
+<p>password: dahouzi</p>
+<ul>
+<li>Xen下载Xencenter客户端操作</li>
+</ul>
+<p>ip:192.168.215.133<br>
+密码: dahouzi!</p>
 
 </div>
 
@@ -273,7 +246,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>空空</div>
-      <div>2024-07-10</div>
+      <div>2024-07-18</div>
     </div>
   </div>
 

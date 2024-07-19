@@ -11,7 +11,7 @@
 
     <title>
         
-          Hello World - 李广良
+          李广良
         
     </title>
 
@@ -153,87 +153,74 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h2 id="高级算法目录">高级算法目录</h2>
-<h3 id="1-1-BFS-Breadth-First-Search">1.1. BFS (Breadth-First Search)</h3>
-<p>广度优先搜索（BFS）是一种图搜索算法，从起始节点开始，逐层向外扩展，访问所有相邻节点。BFS 使用队列来跟踪要访问的节点顺序，适用于寻找最短路径（在无权图中）和检测图的连通性。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空队列 <code>queue</code> 和一个空集合 <code>visited</code>。</li>
-<li>将起始节点放入队列和访问集合中。</li>
-<li>当队列不为空时，重复以下步骤：
+  <h2 id="Stack">Stack</h2>
+<h3 id="特点：">特点：</h3>
 <ul>
-<li>弹出队列中的节点，将其标记为已访问。</li>
-<li>将所有未访问过的邻居节点加入队列和访问集合。</li>
+<li>LIFO（Last In, First Out）：最后进来的元素最先被处理。</li>
+<li>常用操作：push（入栈）、pop（出栈）、peek（查看栈顶元素）。</li>
 </ul>
-</li>
-</ol>
-<h3 id="1-2-DFS-Depth-First-Search">1.2. DFS (Depth-First Search)</h3>
-<p>深度优先搜索（DFS）是一种图搜索算法，从起始节点开始，沿着一个分支深入，直到不能继续为止，然后回溯并继续搜索未访问的节点。DFS 使用栈来实现递归，适用于检测环、拓扑排序等。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个空集合 <code>visited</code> 来记录访问过的节点。</li>
-<li>从起始节点开始调用递归函数 <code>dfs</code>：
+<h3 id="性能：">性能：</h3>
 <ul>
-<li>将当前节点标记为已访问。</li>
-<li>对于当前节点的每个未访问的邻居节点，递归调用 <code>dfs</code> 函数。</li>
+<li>入栈（push）和出栈（pop）：时间复杂度为 O(1)。</li>
+<li>空间复杂度：与存储的元素数量成正比，为 O(n)。</li>
 </ul>
-</li>
-</ol>
-<h2 id="2-Shortest-Path-Algorithms">2. Shortest Path Algorithms</h2>
-<h3 id="2-1-Dijkstra">2.1. Dijkstra</h3>
-<p>Dijkstra 算法用于计算单源最短路径，适用于边权重非负的图。它使用优先队列来选择当前最短路径的节点，逐步更新其邻居的最短路径。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建一个优先队列 <code>pq</code> 和距离字典 <code>distances</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>将起始节点和距离 0 放入队列。</li>
-<li>当队列不为空时，重复以下步骤：
+<h3 id="优势：">优势：</h3>
 <ul>
-<li>弹出队列中距离最小的节点。</li>
-<li>对于该节点的每个邻居节点，如果通过当前节点到达该邻居节点的路径距离更短，则更新距离并将其加入队列。</li>
+<li>操作简单，适用于需要后进先出（LIFO）策略的场景，如函数调用栈、表达式求值等。</li>
+<li>内存使用效率高。</li>
 </ul>
-</li>
-</ol>
-<hr>
-<h3 id="2-2-Bellman-Ford">2.2. Bellman-Ford</h3>
-<p>Bellman-Ford 算法用于计算单源最短路径，适用于包含负权边的图。它通过反复松弛所有边，更新最短路径，最多进行 |V|-1 次迭代。它还能检测负权环。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>创建距离字典 <code>distance</code>，初始化起始节点的距离为 0，其余节点为无穷大。</li>
-<li>进行 |V|-1 次迭代，每次迭代遍历所有边：
+<h3 id="劣势：">劣势：</h3>
 <ul>
-<li>对于每条边 (u, v) 权重为 w，如果通过节点 u 到节点 v 的路径距离更短，则更新距离。</li>
+<li>访问非栈顶元素效率低，需要遍历。</li>
 </ul>
-</li>
-<li>再次遍历所有边，检查是否存在负权环。</li>
-</ol>
-<h2 id="3-Pattern-Matching-Algorithms">3. Pattern Matching Algorithms</h2>
-<h3 id="3-1-KMP-Knuth-Morris-Pratt">3.1. KMP (Knuth-Morris-Pratt)</h3>
-<p>KMP 算法用于字符串模式匹配，通过预处理模式串构建部分匹配表，从而在匹配过程中避免重复扫描文本。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建部分匹配表 <code>lps</code>，用于指示在匹配失败时模式串应移动的位置。</li>
-<li>使用两个指针 i 和 j 分别遍历文本和模式串：
+<h2 id="Queue">Queue</h2>
+<h3 id="特点：-2">特点：</h3>
 <ul>
-<li>如果匹配成功（text[i] == pattern[j]），则同时向前移动 i 和 j。</li>
-<li>如果 j 达到模式串末尾，说明找到了匹配，记录匹配的起始位置。</li>
-<li>如果匹配失败（text[i] != pattern[j]），根据部分匹配表移动模式串的位置 j。</li>
+<li>FIFO（First In, First Out）：最先进来的元素最先被处理。</li>
+<li>常用操作：enqueue（入队）、dequeue（出队）、peek（查看队首元素）。</li>
 </ul>
-</li>
-</ol>
-<h3 id="3-2-Boyer-Moore">3.2. Boyer-Moore</h3>
-<p>Boyer-Moore 算法是另一种字符串模式匹配算法，通过从右向左匹配和使用跳跃表显著减少比较次数，提高匹配效率。</p>
-<p><strong>实现步骤：</strong></p>
-<ol>
-<li>构建字符到最后出现位置的映射表 <code>last</code>。</li>
-<li>使用两个指针 s 和 j 分别遍历文本和模式串：
+<h3 id="性能：-2">性能：</h3>
 <ul>
-<li>从右向左比较模式串和文本，当匹配失败时根据 <code>last</code> 表跳过一定的字符。</li>
-<li>如果完全匹配，记录匹配的起始位置并移动 s。</li>
-<li>如果部分匹配但未完全匹配，根据 <code>last</code> 表调整 j 的位置。</li>
+<li>入队（enqueue）和出队（dequeue）：时间复杂度为 O(1)（使用链表或循环数组实现时）。</li>
+<li>空间复杂度：与存储的元素数量成正比，为 O(n)。</li>
 </ul>
-</li>
-</ol>
-<p>这些算法在图论、路径查找和字符串模式匹配领域中具有重要应用，能够有效解决各种复杂问题。</p>
+<h3 id="优势：-2">优势：</h3>
+<ul>
+<li>适用于需要先进先出（FIFO）策略的场景，如任务调度、缓冲区管理等。</li>
+<li>操作简单，入队和出队操作效率高。</li>
+</ul>
+<h3 id="劣势：-2">劣势：</h3>
+<ul>
+<li>访问非队首元素效率低，需要遍历。</li>
+</ul>
+<h2 id="PriorityQueue">PriorityQueue</h2>
+<h3 id="特点：-3">特点：</h3>
+<ul>
+<li>元素按照优先级顺序进行出队，优先级高的元素先出队。</li>
+<li>常用操作：insert（插入元素）、remove（移除元素）、peek（查看优先级最高的元素）。</li>
+</ul>
+<h3 id="性能：-3">性能：</h3>
+<ul>
+<li>插入（insert）：时间复杂度为 O(log n)（使用二叉堆实现时）。</li>
+<li>删除（remove）：时间复杂度为 O(log n)（删除优先级最高的元素）。</li>
+<li>查看优先级最高元素（peek）：时间复杂度为 O(1)。</li>
+</ul>
+<h3 id="优势：-3">优势：</h3>
+<ul>
+<li>适用于需要动态管理元素优先级的场景，如任务调度、路径规划（如Dijkstra算法）、事件驱动模拟等。</li>
+<li>可以快速获取和删除优先级最高的元素。</li>
+</ul>
+<h3 id="劣势：-3">劣势：</h3>
+<ul>
+<li>插入和删除操作比 Stack 和 Queue 要复杂，时间复杂度较高。</li>
+<li>需要维护优先级，内存开销可能较大。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<ul>
+<li>Stack：适用于需要 LIFO 策略的场景，入栈和出栈操作效率高（O(1)），但访问非栈顶元素效率低。</li>
+<li>Queue：适用于需要 FIFO 策略的场景，入队和出队操作效率高（O(1)），但访问非队首元素效率低。</li>
+<li>PriorityQueue：适用于需要根据优先级动态管理元素的场景，可以快速获取和删除优先级最高的元素（O(log n)），但插入和删除操作比 Stack 和 Queue 要复杂，时间复杂度较高。</li>
+</ul>
 
 </div>
 
@@ -273,7 +260,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>空空</div>
-      <div>2024-07-10</div>
+      <div>2024-07-12</div>
     </div>
   </div>
 
