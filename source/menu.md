@@ -1,32 +1,37 @@
-# 信息安全
 
-## H2
 
-- find nearest header
-- this unordered list will find H2
+### 04操作系统
+- [4.1.系统加固](/04操作系统/4.1.系统加固.html)
+- [4.2.系统加固2](/04操作系统/4.2.系统加固2.html)
 
-### H3
+### 05高级算法
+- [高级算法目录](/05高级算法/高级算法目录.html)
+- [图论](/05高级算法/图论.html)
+- [Kruskal算法](/05高级算法/Kruskal算法.html)
 
-- [Markdown语法](/2024/07/08/hello-world/index.html)
-- [kk](/2024/07/08/kk/index.html)
-- this unordered list will find H3/2024/07/08/kk/index.html
-- - [kk](/2024/07/08/kk/index.html)
+#### 06虚拟化
+- [6.1.虚拟化ESXi与KVM对比](/06虚拟化/6.1.虚拟化ESXi与KVM对比.html)
 
-# 软件开发
 
-#### 高级算法
-- [高级算法目录](/高级算法/高级算法目录.html)
-- [图论](/高级算法/图论.html)
-- [Kruskal算法](/高级算法/Kruskal算法.html)
 
-##### H5
+### 07中间件
+- [7.1.Zookeeper集群环境部署](/07中间件/7.1.Zookeeper集群环境部署.html)
+- [7.2.Mysql双主集群部署](/07中间件/7.2.Mysql双主集群部署.html)
+-
+### 08自动化工具
 
-- find nearest header
-- this unordered list will find H5
+- [Ansible安装配置](/08自动化工具/Ansible安装配置.html)
 
-###### H6
+### 09异常处理
 
-- find nearest header
-- this unordered list will find H6
+- [docker提示磁盘空间不足](/09异常处理/docker提示磁盘空间不足.html)
 
-# 操作系统
+### 10未分类
+
+- [linux系统备份到NAS服务器](/10未分类/10.1.linux系统备份到NAS服务器.html)
+- [openssh升级（openssh-9.0p1）](/10未分类/10.2.openssh升级.html)
+
+
+### 99关于面试
+
+- [99.1.linux系列](/99关于面试/01.linux.html)

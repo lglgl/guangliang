@@ -1,0 +1,122 @@
+---
+author: 空空
+---
+
+## 一、Ansible安装
+
+### 1. yum源安装
+
+基于centos7.9和默认Python2.7安装。
+
+```shell
+yum install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+```
+
+
+
+### 2. 验证ansible安装结果
+
+查看版本
+
+```shell
+[root@localhost ansible]# ansible --version
+ansible 2.9.27
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.5 (default, Oct 14 2020, 14:45:30) [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+```
+
+查看/etc/ansible/路径下配置文件
+
+```shell
+[root@localhost ansible]# ll /etc/ansible/
+total 28
+-rw-r--r--. 1 root root 19983 May 23 04:53 ansible.cfg
+-rw-r--r--. 1 root root  1219 May 23 04:32 hosts
+drwxr-xr-x. 2 root root     6 Jan 15  2022 roles
+```
+
+### 3. 编辑host文件
+
+在`/etc/ansible/hosts`文件里面，添加三台测试机器的用户信息。
+
+当然，此方式不安全，大家都知道。更安全的是配置私钥连接或者将密码加密。
+
+```shell
+[kubernetes]
+192.168.132.129 ansible_ssh_user=root ansible_ssh_pass='***'
+192.168.132.130 ansible_ssh_user=root ansible_ssh_pass='***'
+192.168.132.131 ansible_ssh_user=root ansible_ssh_pass='***'
+```
+
+### 4. 编辑playbook sample
+
+在`/etc/ansible/`路径下添加`test.yml`文件如下，`hosts: kubernetes`表示对应的[3. 编辑host文件]谈到的服务器组。tasks则是执行任务，name遵守开发命名规范即可。
+
+命令含义：将字符串`kongkong`输出到`/etc/kongkong.txt`文件中
+
+```shell
+- hosts: kubernetes
+  gather_facts: No
+  tasks:
+  - name: echo test data to file
+    shell: echo kongkong >> /etc/kongkong.txt
+```
+
+### 5. 执行测试
+
+查看执行结果`ok=1    changed=1`表示执行成功，update1个。
+
+```shell
+[root@localhost ansible]# ansible-playbook test.yml
+
+PLAY [kubernetes] ****************************************************************************************************
+
+TASK [find file] *****************************************************************************************************
+changed: [192.168.132.131]
+changed: [192.168.132.130]
+changed: [192.168.132.129]
+
+PLAY RECAP ***********************************************************************************************************
+192.168.132.129            : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.132.130            : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.132.131            : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+
+### 6. 验证测试结果
+
+到192.168.132.[129-130]任意一台机器，查看如下结果，表示成功。
+
+```shell
+[root@localhost ~]# cat /etc/kongkong.txt
+kongkong
+```
+
+## 二、Ansible配置
+### 1. 主机分组
+
+- hosts文件
+
+```shell
+#密码设置
+[master]
+192.168.132.129 ansible_ssh_user=root ansible_ssh_pass='***' zk_myid=1
+
+[node1]
+192.168.132.130 ansible_ssh_user=root ansible_ssh_pass='***' zk_myid=2
+
+[node2]
+192.168.132.131 ansible_ssh_user=root ansible_ssh_pass='***' zk_myid=3
+
+#分组设置
+[kubernetes:children]
+master
+node1
+node2
+```
+
+
+
