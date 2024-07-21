@@ -713,6 +713,11 @@ img {
   display: block;
 }
 
+h1 {
+  color: red;
+  font-weight: bold;
+}
+
 .book-archive h1,
 .book-archive h2 {
   margin: 0;
